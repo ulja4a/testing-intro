@@ -3,7 +3,19 @@ function notImplemented() {
 }
 
 function addToCart(cart, product, quantity) { 
-  return [...cart, {...product, quantity: quantity}]; 
+  const existingProduct = cart.find((item) => item.id === product.id);
+
+  if (existingProduct) {
+  return cart.map((item) => {
+    if (item.id === product.id) {
+      return { ...item, quantity: existingProduct.quantity + quantity };
+    }
+
+    return item;
+  });
+}
+
+  return [...cart, { ...product, quantity }]; 
 }
 function changeQuantity() { return notImplemented(); }
 function removeFromCart() { return notImplemented(); }
