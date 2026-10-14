@@ -31,7 +31,7 @@ describe('searchProducts', () => {
     expect(result.map((product) => product.id )).toEqual([1, 2, 3, 4, 5, 6]);
   });
   test("строка из пробелов возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
-    const result = searchProducts(products, ' ');
+    const result = searchProducts(products, '   ');
     expect(result.map((product) => product.id )).toEqual([1, 2, 3, 4, 5, 6]);
   });
   test("'\\t\\n' возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
